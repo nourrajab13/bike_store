@@ -46,17 +46,24 @@ class HomeScreen extends StatelessWidget {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () {
+                    homeController.index.value=index;
                     homeController.categoriesShow(index);
                   },
-                  child: Container(
-                    width: 80,
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(23),
-                      color: AppColors.whiteColor,
-                    ),
-                    child: Image.asset(homeController.categories[index],fit: BoxFit.contain,),
+                  child: Obx((){
+                      return Container(
+                        width: 80,
+                        margin: EdgeInsets.all(10),
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          border: homeController.index.value==index?
+                           Border.all(color: AppColors.firstColor,width: 2)
+                           :Border(bottom: BorderSide.none),
+                          borderRadius: BorderRadius.circular(23),
+                          color: AppColors.whiteColor,
+                        ),
+                        child: Image.asset(homeController.categories[index],fit: BoxFit.contain,),
+                      );
+                    }
                   ),
                 );
               },),

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class HomeController extends GetxController{
 
   RxInt count=1.obs;
-  
+  RxInt index=0.obs;
 
   List<String>categories=[
     'assets/images/a/aa.png',
